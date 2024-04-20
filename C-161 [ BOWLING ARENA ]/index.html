@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOWLIG ARENA</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="throw.js"></script>
+  </head>
+  <body>
+    <a-scene id="scene">
+      <!-- Assets -->
+      <a-assets>
+        <a-asset-item id="pin" src="pin.glb"></a-asset-item>
+      </a-assets>
+
+      <!--Ground-->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="10"
+        width="5"
+        color="red"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <!-- Camera -->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"
+      ></a-entity>
+      <a-cursor></a-cursor>
+
+      <!--Light-->
+      <a-entity light="type: ambient; color: yellow; intensity:0.5"></a-entity>
+
+      <a-entity ball></a-entity>
+
+      <!-- pins -->
+      <a-entity id="target" gltf-model="#pin"></a-entity>
+    </a-scene>
+  </body>
+</html>
